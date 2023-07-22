@@ -1,0 +1,32 @@
+#include <unistd.h>
+
+void ft_putstr(char *str)
+{
+    
+    int strLeng;
+    
+    strLeng = 0;
+    while(str[strLeng] != '\0')
+    {
+        strLeng++;
+    }
+    
+    int counter;
+    
+    counter = 0;
+    while(counter <= strLeng)
+    {
+        char c;
+        c = str[counter];
+        
+        write(1, &c, 1);
+        
+        counter++;
+    }
+}
+
+
+int main() 
+{
+    ft_putstr("BananaJoe");
+}
