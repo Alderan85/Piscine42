@@ -1,0 +1,50 @@
+// Hello world! Cplayground is an online sandbox that makes it easy to try out
+// code.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void ft_sort_int_tab(int *tab, int size)
+{
+    int range;
+    int newTab[size];
+    int counter;
+    int i;
+    
+    i = 0;
+    range = 9;
+    counter = 0;
+    
+    while(range >= 0)
+    {
+        while(i <= size - 1)
+        {
+            if(tab[i] == range)
+            {
+                newTab[counter] = range;
+                counter++;
+                i++;
+            }
+            else
+            i++;
+        }
+        i = 0;
+        range--;
+    }
+    
+    tab = newTab;
+    
+    printf("%d, %d, %d, %d, %d", tab[0], tab[1], tab[2], tab[3], tab[4]); 
+}
+
+
+
+int main() 
+{
+    int tab[5] = {1, 9, 6, 5, 4};
+	int size = 5;
+
+	ft_sort_int_tab(tab, size);
+    return 0;
+}
