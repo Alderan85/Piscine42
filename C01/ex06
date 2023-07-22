@@ -1,0 +1,24 @@
+#include <unistd.h>
+#include <stdio.h>
+
+int ft_strlen(char *str)
+{
+    int strLeng;
+    
+    strLeng = 0;
+    while(str[strLeng] != '\0')
+    {
+        strLeng++;
+    }
+    
+    strLeng++;
+    
+    return (strLeng);
+}
+
+
+int main() 
+{
+    char *c = "BananaJoe";
+    printf("%d", ft_strlen(c));
+}
