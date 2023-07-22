@@ -1,0 +1,99 @@
+#include <unistd.h>
+
+//Function to print a single char
+void	ft_putchar(char c)
+{
+    //Actual printing of a single char
+	write(1, &c, 1);
+}
+
+// CHAR S : The character to be printed at the beginning of the line
+// CHAR M : The character to be printed at the middle of the line
+// CHAR E : The character to be printed at the end of the line
+//
+// CHAR S and E are the same in this ex but this program can be used for other Rush
+//              where the chars at the beginning and ending of the line are diffent.
+//              We just need to change the char to be printed.    
+
+
+void	writer(int width, char s, char m, char e)
+{
+    //Write the "starter char" on the first line
+	ft_putchar(s);
+	
+	//Subtract 1 CHAR after writing the char
+	width--;
+	
+	    //Cycling trought "middle chars"
+    	while(width > 1)
+    	{ 
+    	    //Write a single "middle char"
+    	    ft_putchar(m);
+    	    
+    	    //Subtract 1 CHAR after writing the char
+    	    width--;
+    	}
+    	
+        //Check if the end is reached
+    	if(width != 0)
+    	{
+    	    //Write a "ending char"
+    	    ft_putchar(e);
+    	}
+    	
+        //Write a new line
+    	write(1, "\n", 1);
+}
+
+void	rush (int width, int height)
+{
+    //Check if width is more than zero
+    if(width < 0)
+    {
+        return;
+    }
+    
+    //Check if there's at least one line to be printed
+    if (height > 0)
+    {
+        // Write a "starter" line
+        writer (width, 'o', '-', 'o');
+        
+        //Subtract 1 LINE after launching the function to process the first line
+        height--;
+        
+        //Cycling trought "middle chars"
+        //The value is 2 and not 1 to print the "ending line"
+        while (height >= 2)
+    	{
+    	    //Call write func for "middle chars"
+    		writer(width, '|', ' ', '|');
+    		//Subtract 1 LINE after launching the function to process a middle line
+    		height--;
+	    }
+	    
+	    //Check if the number of lines is more than 1
+	    if(height == 1)
+	    {
+	        // Write an "ending line"
+	        writer (width, 'o', '-', 'o');
+	    }
+	    
+    }
+    
+    //If the number of the lines to be printed is zero a return is called
+    else
+    {
+        return;
+    }
+}
+
+
+int main() 
+{
+    //The FIRST VALUE of the rush-function is the Width of the line to be printed
+    //The SECOND VALUE of the rush-funciotn is the Height of the line to be printed
+    rush(5,5);
+    return 0;
+}
+
