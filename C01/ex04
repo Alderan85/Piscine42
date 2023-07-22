@@ -1,0 +1,33 @@
+#include <unistd.h>
+//#include <stdio.h>
+
+void ft_ultimate_div_mod(int *a, int *b)
+{
+    int res;
+    int rem;
+    
+    res = *a / *b;
+    rem = *a % *b;
+    
+    *a = res;
+    *b = rem;
+    
+    //printf("Div Result : %d\n", *a);
+    //printf("Div Result : %d\n", *b);
+    
+    
+}
+
+    
+/*
+int main() 
+{
+    int a;
+    int b;
+    
+    a = 11;
+    b = 2;
+    
+   ft_ultimate_div_mod(&a,&b);
+}
+*/
