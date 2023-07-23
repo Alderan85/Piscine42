@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdio.h>
 
 void ft_div_mod(int a, int b, int *div, int *mod)
 {
@@ -6,3 +7,12 @@ void ft_div_mod(int a, int b, int *div, int *mod)
   *mod = a % b;
 }
     
+int		main(void)
+{
+	int		div, mod, n, n1;
+
+	n = 10;
+	n1 = 5;
+	ft_div_mod(n, n1, &div, &mod);
+	printf("%d %d %d %d\n", n, n1, div, mod);
+}
