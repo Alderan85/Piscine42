@@ -14,5 +14,5 @@ int		main(void)
 	n = 10;
 	n1 = 5;
 	ft_div_mod(n, n1, &div, &mod);
-	printf("%d %d %d %d\n", n, n1, div, mod);
+	printf("%d\n %d\n %d\n %d\n", n, n1, div, mod);
 }
