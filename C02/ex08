@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void print(char *str)
+{
+    printf("%s\n", str);
+}
+
+
+char *ft_strlowcase(char *str)
+{
+    int i;
+    int temp;
+    
+    i = 0;
+   
+          while(str[i] != '\0')
+          {
+              if(str[i] >= 65 && str[i] <= 90)
+              {
+                  temp = str[i] - 65;
+                  str[i] = 97 + temp;
+                  i++;
+              }
+              else
+              {
+                  i++;
+              }
+          }
+              
+              print(str);
+          return (str);
+          
+}
+
+
+int main() 
+{   
+    char str[7] = "hE(Llo";
+    printf("%s\n", str);
+    ft_strlowcase(str);
+    return 0;
+}
