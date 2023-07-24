@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,57 +8,58 @@ void print(char *str)
     printf("%s\n", str);
 }
 
+char ft_capitalizer(char *str, int i)
+{
+    int fakebool;
+    int temp;
+
+    fakebool = 1;
+    
+     if (fakebool == 1)
+                  {
+                      temp = str[i] - 97;
+                      str[i] = 65 + temp;
+                      fakebool = 0;
+                  }
+    return str[i];
+}
 
 char *ft_strcapitalize(char *str)
 {
     int i;
-    int temp;
     int fakebool;
     
     fakebool = 1;
     i = 0;
-   
           while(str[i] != '\0')
           {
-              
             if((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122) || (str[i] >= 48 && str[i] <= 57) )
             {
                 if (str[i] >= 97 && str[i] <= 122)
                 {
                   if (fakebool == 1)
                   {
-                      temp = str[i] - 97;
-                      str[i] = 65 + temp;
+                      str[i] = ft_capitalizer(str,i);
                       fakebool = 0;
                   }
                     i++;
-                     
                 }
                 else
                 {
                     if (str[i] >= 48 && str[i] <= 57)
-                    {
-                        i++;
                     fakebool = 0;
-                    }
                     else
-                    {
-                        i++;
-                    fakebool = 1;
-                    }
+                    fakebool = 1;  
+                    i++;
                 }
-                 
               }
               else
               {
                   fakebool = 1;
                   i++;
               }
-          }
-              
-              print(str);
+              }
           return (str);
-          
 }
 
 
@@ -66,5 +68,6 @@ int main()
     char str[100] = ("salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un");
     printf("%s\n", str);
     ft_strcapitalize(str);
+    printf("%s\n", str);
     return 0;
 }
