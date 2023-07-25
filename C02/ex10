@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <unistd.h>
+
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	int len;
+	int	i;
+	
+  i = 0;
+	len = 0;
+	while(src[len] != '\0')
+	{
+		len++;
+	}	
+
+	if (size != 0)
+	{
+		while (src [i] != '\0' && i < size - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (len);
+}
+
+
+int main() 
+{
+    char src[] = "Banana!";
+	char dest[] = "TEST";
+	
+		printf("%s\n", dest);
+	ft_strlcpy(dest, src, 10);
+		printf("%s\n", dest);
+
+    return 0;
+}
