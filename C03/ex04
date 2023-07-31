@@ -1,19 +1,27 @@
-#include <unistd.h>
+
 #include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int strtofindlen;
-	int i;
-	int i2;
+	int	strtofindlen;
+	int	i;
+	int	i2;
 
-	strtofindlen = 0;
+	strtofindlen = ft_strlen(to_find);
 	i = 0;
 	i2 = 0;
-	while (to_find[strtofindlen])
-	{
-		strtofindlen++;
-	}
 	if (strtofindlen == 0)
 		return (str);
 	while (str[i])
@@ -27,13 +35,14 @@ char	*ft_strstr(char *str, char *to_find)
 		i2 = 0;
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
-
+/*
 int	main()
 {
-	char str[] = "abcDEFghijklmDEFnopqrstuvwxyz";
-	char strtofind[] = "DEF";
+	char str[] = "banANAbanana";
+	char strtofind[] = "ANA";
 	printf("%s", ft_strstr(str, strtofind));
 	return (0);
 }
+*/
