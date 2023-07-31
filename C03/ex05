@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	i2;
+	unsigned int	destlen;
+	unsigned int	srclen;
+
+	i = 0;
+	i2 = 0;
+	srclen = ft_strlen(src);
+	if (size == 0)
+		return (srclen + size);
+	destlen = ft_strlen(dest);
+	if (size <= destlen)
+		return (srclen + size);
+	while (i2 <= destlen + srclen - 1)
+	{
+		dest[i2 + destlen] = src[i];
+		i++;
+		i2++;
+	}
+	dest[i2] = '\0';
+	return (destlen + srclen);
+}
+/*
+int main (void)
+{
+	char src[] = "Born to code";
+    	char dest [] = "1337 42";
+    printf("%i\n", ft_strlcat(dest, src, 20));
+    printf("%s\n", dest);
+}
+*/
