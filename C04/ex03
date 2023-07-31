@@ -1,0 +1,53 @@
+
+#include <unistd.h>
+//#include <stdio.h>
+
+int	test(char c)
+{
+	if ((c >= 9 && c <= 13) || c == 43 || c == 32)
+		return (0);
+	return (1);
+}
+
+int	resulthandler(int tot, int minus)
+{
+	if ((minus % 2) != 0)
+		return (-tot);
+	return (tot);
+}
+
+int	ft_atoi(char *str)
+{
+	int	counter;
+	int	tot;
+	int	minus;
+
+	counter = 0;
+	tot = 0;
+	minus = 0;
+	while (str[counter] != '\0')
+	{
+		if (str[counter] < 48 || str[counter] > 57)
+		{
+			if (str[counter] == 45)
+				minus++;
+			else if ((test(str[counter]) == 1) || tot != 0)
+				break ;
+		}
+		else
+		{
+			tot *= 10;
+			tot += str[counter] - '0';
+		}
+		counter++;
+	}
+	return (resulthandler(tot, minus));
+}
+/*
+int	main()
+{
+	char	test[50] = "---22abc123";
+
+	printf("%d\n", ft_atoi(test));
+}
+*/
