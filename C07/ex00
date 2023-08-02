@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+char *ft_strdup(char *src)
+{
+    char *dest;
+    int count;
+    int i;
+    
+    i = 0;
+    count = 0;
+    while(src[i] != '\0')
+        i++;
+    dest = (char *)malloc(i * sizeof(char) + 1);    
+    if (!dest)
+		    return (0);
+    while(src[count] != '\0')
+    {
+        dest[count] = src[count];
+        count++;
+    }
+    dest[count] = '\0';
+    return(dest);
+}
+
+
+
+int main()
+{
+    char str[] = "banana";
+    char *dest;
+    
+    dest = ft_strdup(str);
+    printf("%s\n", dest);
+    
+    free(dest);
+    return (0);
+}
