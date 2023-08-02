@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int ft_ultimate_range(int **range, int min, int max)
+{
+    int *r;
+    int count;
+    int i;
+    
+    if(min > max)
+        return(0);
+        
+    count = 0;
+    i = max - min;
+    r = (int *)malloc(i * sizeof(int));    
+    if (!r)
+	{
+		return (-1);
+	}
+	*range = r;
+    while(count <= i - 1)
+    {
+        r[count] = min + count;
+        printf("%d\n", r[count]);
+        count++;
+        
+    }
+        
+
+    return(i);
+}
+
+int main()
+{
+    int min;
+    int max;
+    int *range;
+    int tot;
+    
+    min = -5;
+    max = 10;
+    
+    tot = ft_ultimate_range(&range,min, max);
+    printf("%d\n", tot);
+    
+    return (0);
+}
