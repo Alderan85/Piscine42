@@ -1,0 +1,29 @@
+#include <unistd.h>
+
+int ft_is_prime(int nb) 
+{
+    int i;
+    
+    i = 2;
+    if (nb < 2) 
+        return 0;
+    while (i * i <= nb) 
+    {
+        if (nb % i == 0) 
+            return 0;
+        i++;
+    }
+    return 1; 
+}    
+
+int main() 
+{
+    int num;
+    
+    num = 120;
+    if (ft_is_prime(num))
+        write(1,"ok",2);
+    else
+        write(1,"no",2);
+    return (0);
+}
