@@ -1,0 +1,28 @@
+#include <unistd.h>
+#include <stdio.h>
+
+int ft_is_prime(int nb) 
+{
+    int i = 2;
+
+    if (nb < 2)
+        return 0;
+
+    while (i * i <= nb) 
+    {
+        if (nb % i == 0) 
+        {
+            return ft_is_prime(nb + 1);
+        }
+        i++;
+    }
+    return nb;
+}
+
+int main() 
+{
+    int num = 46;
+    
+    printf("%d",ft_is_prime(num));
+    return 0;
+}
